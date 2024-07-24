@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6d64ff, #4a42d4);
+        }
+    
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+    
+        select,
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 50%;
+            padding: 0 10px;
+        }
+    
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+    
+        .form-row div {
+            flex-basis: calc(50% - 20px);
+            margin-bottom: 10px;
+        }
+    
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    
+        #report {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h2>Diabetes Prediction</h2>
+        <form action="result" method="get">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="n1">Gender:</label>
+                    <select id="n1" name="n1" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="n2">Age:</label>
+                    <input type="number" id="n2" name="n2" step="any" required>
+                </div>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="n3">Hypertension (0 or 1):</label>
+                    <input type="number" id="n3" name="n3" min="0" max="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="n4">Heart Disease (0 or 1):</label>
+                    <input type="number" id="n4" name="n4" min="0" max="1" required>
+                </div>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="n5">Smoking History:</label>
+                    <select id="n5" name="n5" required>
+                        <option value="never">Never</option>
+                        <option value="ever">Ever</option>
+                        <option value="former">Former</option>
+                        <option value="No Info">No Info</option>
+                        <option value="current">Current</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="n6">BMI:</label>
+                    <input type="number" id="n6" name="n6" step="any" required>
+                </div>
+            </div>
+    
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="n7">HbA1c Level:</label>
+                    <input type="number" id="n7" name="n7" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="n8">Blood Glucose Level:</label>
+                    <input type="number" id="n8" name="n8" step="any" required>
+                </div>
+            </div>
+    
+            <input type="submit" value="Predict">
+        </form>
+        <br>
+        <div>
+            Result: {{ result2 }}
+        </div>
+        <!-- <div id="report"></div> -->
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
